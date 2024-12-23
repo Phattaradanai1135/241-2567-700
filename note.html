@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #register {
+            font-size: 24px;
+            color: darksalmon;
+            font-weight: 800;
+            padding: 10px;
+            margin: 10px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+         /*top right bottom left*/
+        .relative {
+            position: relative;/*เลื่อนได้*/
+            left: 20px;
+        }
+        .absolute {
+            position: absolute;/*ติดอยู่*/
+            top: 0px;
+            right: 0px;
+        }
+        .fixed {
+            position: fixed;/*ติดอยู่เสมอ*/
+            top: 0px;
+            right: 0px;
+        }
+        .sticky {
+            position: sticky;/*ติดอยู่เมื่อเลื่อน*/
+            top: 50px;
+        }
+        .container {
+            height: 1800px;
+        }
+        .image{
+            background-image: url("");
+            height: 200px;
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top right;
+        }
+    </style>
+</head>
+<body>
+    <div class="image"></div>
+    <div class="container">
+        <div class="static">Static</div>
+        <div class="relative">Relative</div>
+        <div class="absolute">Absolute</div>
+        <div class="fixed">Fixed</div>/*ติดอยู่เสมอ*/
+        <div class="sticky">Sticky</div>/*ติดอยู่เมื่อเลื่อน*/
+    </div>
+</body>
+</html>
