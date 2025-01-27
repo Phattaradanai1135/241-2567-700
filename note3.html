@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: red;
+        }
+        @media screen and (min-width: 768px) {
+            .container {
+                background-color: blue;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Hello World breakpoint
+    </div>
+    <picture>
+        <source media ="(max-width:768px)"
+        srcset="https://fastly.picsum.photos/id/687/200/300.jpg?grayscale&hmac=nWdYLZ5cSEYsif7SH5YF7wiCtfSGvamYib3VZh5c3z8"
+        >
+        <img 
+        src="https://fastly.picsum.photos/id/870/200/300.jpg?blur=2&grayscale&hmac=ujRymp644uYVjdKJM7kyLDSsrqNSMVRPnGU99cKl6Vs"
+        > 
+    </picture>
+</body>
+</html>

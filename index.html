@@ -4,62 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* ส่วนของ CSS */
-        /*ใช้สำหรับแต่ง (id class)*/
-        @font-face {
-            font-family: 'Kanit';
-            src: url('./Kanit/Kanit-Regular.ttf');
-        }
-
-        body {
-            font-family: 'kanit', sans-serif;
-            font-size: 14px;
-        }
-
-        .container {
-            width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: azure;
-            padding: 20px;
-        }
-
-        .header{
-            font-size: 30px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header-form {
-            width: 140px;
-        }
-
-        .flex{
-            display:flex;
-        }
-
-        .form-input{
-            margin-bottom: 10px;
-        }
-
-        input.form, textarea {
-            border: 1px solid #ccc;
-            width: 100%;
-        }
-
-        .center{
-            text-align: center;
-        }
-
-        .button{
-            border: 1px solid #ccc;
-            width: 100px;
-            height: 40px;
-        }
-
-    </style>
+    <title>Register</title>
+    <link rel ="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -85,9 +31,15 @@
         <div class="flex gender form-input">
             <div class="header-form">เพศ</div>
             <div>
-                <input name="gender" type="radio">ชาย
-                <input name="gender" type="radio">หญิง
-                <input name="gender" type="radio">อื่นๆ
+                <div>
+                    <input name="gender" type="radio">ชาย
+                </div>
+                <div>
+                    <input name="gender" type="radio">หญิง
+                </div>
+                <div>
+                    <input name="gender" type="radio">อื่นๆ
+                </div> 
             </div>
         </div>
 

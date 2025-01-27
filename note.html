@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Position</title>
     <style>
-        #register {
-            font-size: 24px;
-            color: darksalmon;
-            font-weight: 800;
-            padding: 10px;
-            margin: 10px;
-            background-color: gray;
-            border: 1px solid black;
-        }
          /*top right bottom left*/
         .relative {
-            position: relative;/*เลื่อนได้*/
+            position: relative;/*สามารถเลือกตำแหน่งได้ระเอียด*/
             left: 20px;
         }
         .absolute {
-            position: absolute;/*ติดอยู่*/
-            top: 0px;
+            position: absolute;
+            bottom: 30px;
             right: 0px;
         }
         .fixed {
-            position: fixed;/*ติดอยู่เสมอ*/
+            position: fixed;/*ติดอยู่เสมอต่อให้เลือนไปชน Container ใหม่ก็ยังอยู่*/
             top: 0px;
             right: 0px;
         }
         .sticky {
-            position: sticky;/*ติดอยู่เมื่อเลื่อน*/
+            position: sticky;/*ติดอยู่เมื่อเลื่อนและถ้าเจอ Container ใหม่จะหยุด*/
             top: 50px;
         }
         .container {
-            height: 1800px;
+            height: 1300px;
         }
         .image{
-            background-image: url("");
+            background-image: url("https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U");
             height: 200px;
             width: 200px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: top right;
+        }
+        .container2 {
+            height: 1800px;
         }
     </style>
 </head>
@@ -52,8 +46,15 @@
         <div class="static">Static</div>
         <div class="relative">Relative</div>
         <div class="absolute">Absolute</div>
-        <div class="fixed">Fixed</div>/*ติดอยู่เสมอ*/
-        <div class="sticky">Sticky</div>/*ติดอยู่เมื่อเลื่อน*/
+        <div class="fixed">Fixed</div>
+        <div class="sticky">Sticky</div>
+    </div>
+    <div class="container2">
+        <div class="static">Static</div>
+        <div class="relative">Relative</div>
+        <div class="absolute">Absolute</div>
+        <div class="fixed">Fixed</div>
+        <div class="sticky">Stick</div>
     </div>
 </body>
 </html>

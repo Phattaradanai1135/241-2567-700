@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello World</div>
+    ชื่อ<input 
+        id="firstname"
+        type="text" 
+        name="firstname" 
+        value="๋Joness">
+    นามสกุล<input 
+        id="firstname"
+        class="input"
+        type="text" 
+        name="firstname" 
+        value="๋Doe">
+    <script>
+        let inputDOM = document.getElementsByClassName('input');//เอาค่าจาก input ทั้งหมด ที่มี class ชื่อ input
+        let firstnameDOM = document.getElementById('firstname');//เอาค่าจาก input ที่มี id ชื่อ firstname
+        console.log(firstnameDOM.value);
+        console.log(inputDOM);
+        for (let i = 0; i < inputDOM.length; i++) {
+            console.log(inputDOM[i].value);
+        }
+    </script>
+</body>
+</html>
