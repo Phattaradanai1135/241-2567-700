@@ -34,6 +34,31 @@ app.get('/testdbnew',async (req, res) => {
   }
 })
 */
+
+const validateData = (userData) => {
+  let errors = []
+
+  if (!userData.firstName) {
+      errors.push('กรุณากรอกชื่อ')
+  }
+  if (!userData.lastName) {
+      errors.push('กรุณากรอกนามสกุล')
+  }
+  if (!userData.age) {
+      errors.push('กรุณากรอกอายุ')
+  }
+  if (!userData.gender) {
+      errors.push('กรุณาเลือกเพศ')
+  }
+  if (!userData.interests) {
+      errors.push('กรุณาเลือกความสนใจ')
+  }
+  if (!userData.discription) {
+      errors.push('กรุณากรอกคำอธิบาย')
+  }
+  return errors
+}
+
 // path = GET /users สำหรับ get users ทั้งหมดที่บันทึกไว้
 app.get('/users', async (req, res) => {
   const results = await conn.query('SELECT * FROM users')
@@ -41,7 +66,7 @@ app.get('/users', async (req, res) => {
 })
 
 // path = POST /user สำหรับสร้าง users ใหม่บันทึกเข้าไป
-app.post('/user', async (req, res) => {
+app.post('/users', async (req, res) => {
   try {
     let user = req.body;
     const results = await conn.query('INSERT INTO users SET ?', user)
@@ -103,16 +128,25 @@ app.put('/users/:id', async (req, res) => {
 app.delete('/user/:id', async (req, res) => {
   try {
     let id = req.params.id;
+    const errors = validateData(user)
+    if(errors.length > 0){
+      throw {
+        message: 'กรุณากรอกข้อมูลให้ครบถ้วน', 
+        errors: errors
+      }
+    }
     const results = await conn.query('DELETE FROM users WHERE id = ?', parseInt(id))
     res.json({
       message: 'Delete user successfully',
       data: results[0]
     })
   } catch (error) {
-    console.error('error: ', error.message)
+    const errorMessage = error.message || 'Something went wrong'
+    const errors = error.errors || []
+    console.error('error message', error.message)
     res.status(500).json({
-      message: 'Something went wrong',
-      errorMessage: error.message
+      message: errorMessage,
+      errors: errors
     })
   }
 });
