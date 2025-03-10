@@ -22,39 +22,27 @@ const initMySQL = async () => {
     port: 8830
   })
 }
-/*
-app.get('/testdbnew',async (req, res) => {
-
-  try {
-    const results = await conn.query('SELECT * FROM users')
-    res.json(results[0])
-  } catch (error) {
-    console.log('error', error.message)
-    res.status(500).json({error: 'Error fetching users'})
-  }
-})
-*/
 
 const validateData = (userData) => {
   let errors = []
 
   if (!userData.firstName) {
-      errors.push('กรุณากรอกชื่อ')
+    errors.push('กรุณากรอกชื่อ')
   }
   if (!userData.lastName) {
-      errors.push('กรุณากรอกนามสกุล')
+    errors.push('กรุณากรอกนามสกุล')
   }
   if (!userData.age) {
-      errors.push('กรุณากรอกอายุ')
+    errors.push('กรุณากรอกอายุ')
   }
   if (!userData.gender) {
-      errors.push('กรุณาเลือกเพศ')
+    errors.push('กรุณาเลือกเพศ')
   }
   if (!userData.interests) {
-      errors.push('กรุณาเลือกความสนใจ')
+    errors.push('กรุณาเลือกความสนใจ')
   }
   if (!userData.discription) {
-      errors.push('กรุณากรอกคำอธิบาย')
+    errors.push('กรุณากรอกคำอธิบาย')
   }
   return errors
 }
@@ -69,16 +57,25 @@ app.get('/users', async (req, res) => {
 app.post('/users', async (req, res) => {
   try {
     let user = req.body;
+    const errors = validateData(user)
+    if (errors.length > 0) {
+      throw {
+        message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+        errors: errors
+      }
+    }
     const results = await conn.query('INSERT INTO users SET ?', user)
     res.json({
       message: 'Create user successfully',
       data: results[0]
     })
-  } catch (err) {
-    console.error('error: ', err.message)
+  } catch (error) {
+    const errorsMessages = error.message || 'Something went wrong'
+    const errors = error.errors || []
+    console.error('error message ', error.message)
     res.status(500).json({
-      message: 'Something went wrong',
-      errorMessage: err
+      message: errorsMessages,
+      errors: errors
     })
   }
 });
@@ -125,28 +122,19 @@ app.put('/users/:id', async (req, res) => {
 });
 
 // path = DELETE /users/:id สำหรับลบ user รายคน (ตาม id ที่บันทึกเข้าไป)
-app.delete('/user/:id', async (req, res) => {
+app.delete('/users/:id', async (req, res) => {
   try {
     let id = req.params.id;
-    const errors = validateData(user)
-    if(errors.length > 0){
-      throw {
-        message: 'กรุณากรอกข้อมูลให้ครบถ้วน', 
-        errors: errors
-      }
-    }
     const results = await conn.query('DELETE FROM users WHERE id = ?', parseInt(id))
     res.json({
       message: 'Delete user successfully',
       data: results[0]
     })
   } catch (error) {
-    const errorMessage = error.message || 'Something went wrong'
-    const errors = error.errors || []
     console.error('error message', error.message)
     res.status(500).json({
       message: errorMessage,
-      errors: errors
+      errors: error.message
     })
   }
 });
