@@ -19,8 +19,8 @@ const loadData = async () => {
         <table id="tablecustomers">
         <tr>
         <td>${user.id}</td> <td>${user.firstname}</td> <td>${user.lastname}</td>
-        <td><a href='index.html?id=${user.id}'><button class = 'buttonEdit select submitData'>Edit</button></a></td>
-        <td><button class = 'delete buttonDelete select submitData' data-id = '${user.id}'>Delete</button></td>
+        <td><a href='index.html?id=${user.id}'><button class = 'buttonEdit submitData'>Edit</button></a></td>
+        <td><button class = 'delete buttonDelete submitData' data-id = '${user.id}'>Delete</button></td>
         </tr>
         </table>
         </div>`
