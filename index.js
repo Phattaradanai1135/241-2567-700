@@ -29,7 +29,7 @@ window.onload = async () => {
             let genderDOMs = document.querySelectorAll('input[name=gender]')
             let interestDOMs = document.querySelectorAll('input[name=interest]')
 
-            for (let i = 0; i < interestDOMs.length; i++) {
+            for (let i = 0; i < genderDOMs.length; i++) {
                 if (genderDOMs[i].value == user.gender) {
                     genderDOMs[i].checked = true
                 }

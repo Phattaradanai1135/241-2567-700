@@ -8,17 +8,30 @@ body {
     font-size: 14px;
 }
 
+.element {
+    background-image: url('background/84248.png'); /* ใส่รูป */
+    background-size: cover; /* ปรับขนาดให้เต็มพื้นที่ */
+    background-position: center; /* จัดตำแหน่งให้อยู่ตรงกลาง */
+    background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
+    height: 90vh; /* สูงเต็มจอ */
+}
+
 .container {
+    margin-top: 50px;
     width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: azure;
+    background-color: rgba(255, 255, 255, 0.3);
+    filter: blur(0.5px);
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 }
 
 .header {
+    margin-top: 20px;
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
@@ -34,24 +47,71 @@ body {
 }
 
 .form-input {
+    border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.select:hover {
+    box-sizing: border-box;
+    border: 2px solid rgb(33, 92, 218);
+}
+
+.submitData{
+    cursor: pointer;
+}
+
+.submitData:hover{
+    background-color: lightblue;
+    border: 2px solid rgb(33, 92, 218);
 }
 
 input.form,
 textarea {
-    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: 2px solid #ccc;
     width: 100%;
 }
+
+
 
 .center {
     text-align: center;
 }
 
+.border {
+    border: 2px groove #000000;
+    border-radius: 10px;
+    height: 26px;
+}
+
 .button {
-    border: 0px;
+    order: 2px solid #000000;
+    border-radius: 10px;
     width: 50%;
     height: 40px;
 }
+
+.buttonnew {
+    border: 2px groove #000000;
+    border-radius: 10px;
+    width: 30%;
+    height: 30px;
+}
+.buttonEdit {
+    background-color:rgb(230, 245, 145);
+    border: 2px groove #000000;
+    border-radius: 10px;
+    width: 100%;
+    height: 26px;
+}
+.buttonDelete {
+    background-color:rgb(245, 145, 145);
+    border: 2px groove #000000;
+    border-radius: 10px;
+    width: 100%;
+    height: 26px;
+}
+
 .message {
     margin-top: 20px;
     padding: 10px;
@@ -67,6 +127,31 @@ textarea {
 .message.danger {
     background-color: lightcoral;
     display: block;
+}
+
+table {
+    background-color: rgba(255, 255, 255, 0.8);
+    cell padding: 10px;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,td {
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+#tablecustomers:hover {
+    background-color: #87CEEB;
+}
+
+#tableheader {
+    background-color: #FFC0CB;
 }
 
 @media screen and (max-width: 768px){

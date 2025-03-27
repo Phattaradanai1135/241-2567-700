@@ -5,14 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <a href="index.html">Back to register</a>
-    User management page
-    <div id="user"></div>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script src="user.js"> </script>
+<body class="element">
+        <div class="center container">
+            <div class="flex">
+                <button onclick="document.location='index.html'" class="buttonnew select submitData">Back to register</button>
+            </div>
+            <div class="header">
+                User management page
+            </div>
+            <table id="tableheader">
+                <tr>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </table>
+            <div id="user"></div>
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+            <script src="user.js"> </script>
+    </div>
 </body>
 
 </html>
